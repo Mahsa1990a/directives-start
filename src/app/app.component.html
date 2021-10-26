@@ -10,10 +10,19 @@
         <!-- because we can't have 2 structural directive for one element -->
         <!-- <li class="list-group-item" *ngFor="let numberEl of numbers">{{ numberEl }}</li> -->
         <div *ngIf="onlyOdd">
-          <li class="list-group-item" *ngFor="let odd of oddNumbers">{{ odd }}</li>
+          <li class="list-group-item"
+            [ngClass]="{oddClass: odd % 2 !== 0}"
+            [ngStyle]="{backgroundColor: odd % 2 !== 0 ? 'yellow' : 'transparent'}"
+            *ngFor="let odd of oddNumbers">{{ odd }}
+          </li>
         </div>
         <div *ngIf="!onlyOdd">
-          <li class="list-group-item" *ngFor="let even of evenNumbers">{{ even }}</li>
+          <li
+            class="list-group-item"
+            [ngClass]="{oddClass: even % 2 !== 0}"
+            [ngStyle]="{backgroundColor: even % 2 !== 0 ? 'black' : 'transparent'}"
+            *ngFor="let even of evenNumbers">{{ even }}
+          </li>
         </div>
       </ul>
     </div>
