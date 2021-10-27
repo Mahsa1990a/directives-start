@@ -4,6 +4,7 @@ import { Directive, ElementRef, OnInit, Renderer2 } from '@angular/core';
   selector: '[appBetterHighlight]'
 })
 export class BetterHighlightDirective implements OnInit {
+  // you should use renderer for any DOM manipulation
   // accessing element : private elRef: ElementRef
   constructor(private elRef: ElementRef, private renderer: Renderer2) { }
 
