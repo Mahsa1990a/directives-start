@@ -16,14 +16,14 @@
             *ngFor="let odd of oddNumbers">{{ odd }}
           </li>
         </div>
-        <div *ngIf="!onlyOdd">
+        <!-- <div *ngIf="!onlyOdd">
           <li
             class="list-group-item"
             [ngClass]="{oddClass: even % 2 !== 0}"
             [ngStyle]="{backgroundColor: even % 2 !== 0 ? 'black' : 'transparent'}"
             *ngFor="let even of evenNumbers">{{ even }}
           </li>
-        </div>
+        </div> -->
         <!-- Real content of *ngIf behind the sene: -->
         <!-- <ng-template [ngIf]="!onlyOdd">
           <div>
@@ -35,6 +35,15 @@
           </li>
           </div>
         </ng-template> -->
+
+        <div *appUnless="onlyOdd">
+          <li
+            class="list-group-item"
+            [ngClass]="{oddClass: even % 2 !== 0}"
+            [ngStyle]="{backgroundColor: even % 2 !== 0 ? 'black' : 'transparent'}"
+            *ngFor="let even of evenNumbers">{{ even }}
+          </li>
+        </div>
       </ul>
       <p appBasicHighlight>Style me with basic directive</p>
       <!-- now we can bind to properties: -->
